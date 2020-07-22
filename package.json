@@ -1,0 +1,18 @@
+{
+  "name": "dms-textlint-action",
+  "version": "1.0.0",
+  "description": "Github Action to run textlint and proofread files",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scan": "src/index.js"
+  },
+  "author": "Rafael Dohms (https://github.com/rdohms)",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
+    "alex": "^8.1.1",
+    "textlint": "^11.6.3"
+  }
+}

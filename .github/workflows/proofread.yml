@@ -1,0 +1,14 @@
+name: Proofread
+
+on: [push, pull_request]
+
+jobs:
+  proofread:
+    name: Proofread
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: rdohms/textlinter-action@v1.0.0-alpha1
+        with:
+          path: './*.md'
+          rulesets: 'textlint-rule-alex'
