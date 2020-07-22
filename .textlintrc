@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "alex": {
+      "allow": []
+    },
+    "common-misspellings": {
+      "ignore": []
+    },
+    "en-capitalization": true,
+    "no-empty-section": true,
+    "no-exclamation-question-mark": true,
+    "one-sentence-per-line": false,
+    "period-in-list-item": true,
+    "spelling": {
+      "language": "en",
+      "wordDefinitionRegexp": "/[\\w']+/g",
+      "suggestCorrections": true,
+    },
+    "terminology": {
+      "defaultTerms": true,
+      "terms": [
+        "DMS"
+      ]
+    },
+    "write-good": {
+      "passive": false
+    }
+  }
+}
