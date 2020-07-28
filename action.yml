@@ -1,0 +1,27 @@
+name: 'dms-textlint'
+description: 'Rund textlint with any available ruleset'
+inputs:
+  rulesets:
+    description: 'Space separated list of ruleset you depend on'
+    required: false
+  path:
+    description: 'File or glob pattern to proofread'
+    required: false
+    default: '{,!(node_modules)/**/}*.md'
+  token:
+    description: 'Github API token to use for publishing check results'
+    required: true
+    default: '${{ github.token }}'
+  annotate:
+    description: If errors should be annotated or just the check failed
+    required: true
+    default: 'true'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - -p ${{ inputs.path }} 
+    - -r ${{ inputs.rulesets }}
+branding:
+  icon: 'edit-3'
+  color: 'blue'

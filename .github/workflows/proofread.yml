@@ -1,0 +1,27 @@
+name: Proofread
+
+on: [push, pull_request]
+
+jobs:
+  proofread:
+    name: Proofread
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: './'
+        with:
+          path: './README.md'
+          rulesets: 'textlint-rule-alex textlint-rule-common-misspellings textlint-rule-en-capitalization textlint-rule-no-empty-section textlint-rule-no-exclamation-question-mark textlint-rule-one-sentence-per-line textlint-rule-period-in-list-item textlint-rule-spelling textlint-rule-terminology textlint-rule-write-good dictionary-en'
+
+  example-failure:
+    name: Integration Sanity Check
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@master
+      - uses: './'
+        with:
+          path: './test/integration/bad.md'
+          annotate: 'false'
+          rulesets: 'textlint-rule-alex textlint-rule-common-misspellings textlint-rule-en-capitalization textlint-rule-no-empty-section textlint-rule-no-exclamation-question-mark textlint-rule-one-sentence-per-line textlint-rule-period-in-list-item textlint-rule-spelling textlint-rule-terminology textlint-rule-write-good dictionary-en'
+        
