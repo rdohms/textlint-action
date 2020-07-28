@@ -1,5 +1,5 @@
-name: 'dms-textlint'
-description: 'Rund textlint with any available ruleset'
+name: 'dms-textlint-action'
+description: 'Proofread any text with TextLint, loading any required rulesets on the fly'
 inputs:
   rulesets:
     description: 'Space separated list of ruleset you depend on'
