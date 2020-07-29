@@ -8,11 +8,10 @@ const annotate = require('./annotate');
 
 async function run() {
   try {
-    console.log(context.payload, process.argv[2]);
-
     const path = process.argv[2];
     const results = await linter.run(path);
-    const head_sha = context.payload.after;
+    const head_sha =
+      context.payload.after || context.payload.pull_request.head.sha;
 
     // Report in output
     if (linter.engine.isErrorResults(results)) {
