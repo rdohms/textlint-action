@@ -1,14 +1,16 @@
-name: Proofread
+name: Run Failure Example
 
-on: [push, pull_request]
+on: workflow_dispatch
 
 jobs:
-  proofread:
-    name: Proofread
+  example-failure:
+    name: Integration Sanity Check
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@master
       - uses: './'
         with:
-          path: './README.md'
+          path: './test/integration/bad.md'
           rulesets: 'textlint-rule-alex textlint-rule-common-misspellings textlint-rule-en-capitalization textlint-rule-no-empty-section textlint-rule-no-exclamation-question-mark textlint-rule-one-sentence-per-line textlint-rule-period-in-list-item textlint-rule-spelling textlint-rule-terminology textlint-rule-write-good dictionary-en'
+        
